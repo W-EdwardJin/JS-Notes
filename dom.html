@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    window.onload = function() {
+      const box1 = document.getElementById('box1');
+      const btn1 = document.getElementById('btn1');
+      const speed = 1;
+      const interval = 30;
+
+      btn1.onclick = function() {
+        setInterval(() => {
+          const { offsetLeft } = box1;
+          box1.style.left = `${offsetLeft + speed}px`;
+        }, interval);
+      }
+    };
+  </script>
+  <style type="text/css">
+    #box1 {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn1">box 向右移动</button>
+  <br/>
+  <br/>
+  <div id="box1"></div>
+</body>
+</html>
