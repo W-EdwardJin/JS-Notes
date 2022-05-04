@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/tools/animation.js"></script>
+  <script>
+    window.onload = function() {
+      const btn1 = document.getElementById('btn1');
+      const btn2 = document.getElementById('btn2');
+      const btn3 = document.getElementById('btn3');
+      const btn4 = document.getElementById('btn4');
+      const box1 = document.getElementById('box1');
+      const box2 = document.getElementById('box2');
+
+      btn1.onclick = function() {
+        move(box1, 'left', 10, 300);
+      }
+
+      btn2.onclick = function() {
+        move(box1, 'left', 10, 0);
+      }
+
+      btn3.onclick = function() {
+        move(box2, 'left', 5, 300);
+      }
+
+      btn4.onclick = function() {
+        move(box2, 'width', 4, 300, function() {
+          move(box2,'height', 10, 300, function() {
+            move(box2, 'width', 4, 50, function() {
+              move(box2, 'height', 15, 50, function() {
+                move(box2, 'top', 15, 0);
+              });
+            })
+          });
+        });
+      }
+    };
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #box1 {
+      width: 50px;
+      height: 50px;
+      background-color: green;
+      position: absolute;
+    }
+    #box2 {
+      width: 50px;
+      height: 50px;
+      background-color: blue;
+      position: absolute;
+      top: 170px;
+    }
+    #line {
+      width: 1px;
+      height: 1000px;
+      position: absolute;
+      left: 300px;
+      background-color: darkred;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn1">box1 向右移动</button>
+  <button id="btn2">box1 向左移动</button>
+  <button id="btn3">box2 向右移动</button>
+  <br/>
+  <br/>
+  <button id="btn4">调整不同样式属性</button>
+  <br/>
+  <br/>
+  <div id="box1"></div>
+  <div id="box2"></div>
+  <div id="line"></div>
+</body>
+</html>
